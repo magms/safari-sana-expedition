@@ -7,7 +7,7 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "A fantastic day safari featuring walking safaris, black-and-white colobus monkeys, and stunning views of Mount Meru.",
     icon: Binoculars,
-    img: "/images/daytrips/arusha-np.jpg"
+    img: "/images/ARS_94021357-768x515.jpeg"
   },
   {
     id: "chemka-hot-spring",
@@ -15,7 +15,7 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "Swim in the crystal clear, geothermal oasis hidden in the arid scrublands. Swing on vines and relax in the warm, turquoise waters.",
     icon: Droplets,
-    img: "/images/daytrips/chemka-hot-springs.jpg"
+    img: "/images/day-5-day-4.jpg"
   },
   {
     id: "lake-manyara-day",
@@ -23,7 +23,7 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "A beautifully scenic park famous for its tree-climbing lions, lush groundwater forests, and huge flamingo flocks.",
     icon: Binoculars,
-    img: "/images/daytrips/lake-manyara.jpg"
+    img: "/images/lake-manyara-national-park1-1-1024x661.webp"
   },
   {
     id: "lake-chala",
@@ -31,7 +31,7 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "Hike down to the stunning, deep blue waters of Lake Chala situated in a caldera on the border of Tanzania and Kenya.",
     icon: MapIcon,
-    img: "/images/daytrips/lake-chala.jpg"
+    img: "/images/chala.jpg"
   },
   {
     id: "maasai-village",
@@ -39,7 +39,7 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "Visit an authentic Boma. Learn about Maasai traditions, dances, and their deep connection to the wildlife and land.",
     icon: Tent,
-    img: "/images/daytrips/maasai-village.jpg"
+    img: "/images/maasai-boma-product.jpg"
   },
   {
     id: "materuni",
@@ -47,7 +47,7 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "Hike through lush village paths to a stunning 80m falls, then roast your own coffee with the local Chagga cooperative.",
     icon: Coffee,
-    img: "/images/daytrips/materuni-waterfalls.jpg"
+    img: "/images/materuni.jpg"
   },
   {
     id: "kili-day-hike",
@@ -55,7 +55,7 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "Get a taste of the mountain! Hike up to Mandara Hut on the Marangu route through the lush rainforest and return the same day.",
     icon: MountainSnow,
-    img: "/images/daytrips/kilimanjaro-day-hike.jpg"
+    img: "/images/IMG_6055.jpg"
   },
   {
     id: "ngorongoro-day",
@@ -63,7 +63,7 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "Descend into the world's largest unbroken volcanic caldera, often called the 'Garden of Eden', for unbelievable wildlife density.",
     icon: Binoculars,
-    img: "/images/daytrips/ngorongoro-crater.jpg"
+    img: "/images/Ngorongoro-crater-rim.jpg"
   },
   {
     id: "tarangire-day",
@@ -71,6 +71,6 @@ export const moshiPackages = [
     type: "Day Trip",
     desc: "Famous for its massive elephant herds and iconic baobab trees. A great one-day safari combining high wildlife density and dramatic scenery.",
     icon: Binoculars,
-    img: "/images/daytrips/tarangire.jpg"
+    img: "/images/SNJV2iXASqkIF7j.jpeg"
   }
 ];
