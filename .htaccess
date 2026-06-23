@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Route built assets to dist/
+RewriteRule ^assets/(.*)$ dist/assets/$1 [L]
+RewriteRule ^images/(.*)$ dist/images/$1 [L]
+RewriteRule ^logo\.png$ dist/logo.png [L]
+
+# All other requests (SPA routes) → dist/index.html
+RewriteRule ^ dist/index.html [L]
