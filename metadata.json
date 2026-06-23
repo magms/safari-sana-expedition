@@ -1,0 +1,6 @@
+{
+  "name": "Safari Sana Expedition",
+  "description": "A premium, high-trust landing page for a Tanzania-based Safari and Kilimanjaro climbing expedition company.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

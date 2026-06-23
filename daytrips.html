@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16734583098"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-16734583098');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day Trips | Kili Taxi</title>
+
+    
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .bg-primary { background-color: #1a56db; }
+        .bg-secondary { background-color: #ff7700; }
+        .text-primary { color: #1a56db; }
+        .text-secondary { color: #ff7700; }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+            url('/images/banner4.jpg');
+            background-size: cover; background-position: center;
+        }
+        .btn-primary { background-color:#1a56db; color:#fff; transition:.3s; }
+        .btn-primary:hover { background-color:#1d4ed8; transform: translateY(-2px); }
+        .btn-secondary { background-color:#ff7700; color:#fff; transition:.3s; }
+        .btn-secondary:hover { background-color:#ea580c; transform: translateY(-2px); }
+        .card-hover { transition: transform .3s, box-shadow .3s; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); }
+        .service-card { transition: all .3s ease; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-icon { width:80px; height:80px; display:flex; align-items:center; justify-content:center; border-radius:50%; margin:0 auto; background:#dbeafe; color:#1a56db; font-size:30px; }
+        .stats-number { font-size:2.5rem; font-weight:700; color:#1a56db; }
+        .input-invalid { border-color:#ef4444 !important; box-shadow: 0 0 0 3px rgba(239,68,68,.1); }
+        /* Google Places autocomplete dropdown — global so it works on every page */
+        .pac-container { z-index: 20000 !important; pointer-events: auto; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,.12); border: 1px solid #e5e7eb; margin-top: 4px; }
+        .pac-item { cursor: pointer; padding: 8px 12px; font-size: 13px; font-family: 'Poppins', sans-serif; }
+        .pac-item:hover { background: #eff6ff; }
+        .pac-item-query { font-size: 13px; color: #1a56db; }
+        .pac-container:empty { display: none; }
+        body.pac-active #map { pointer-events: none; }
+    </style>
+
+    </head>
+<body class="bg-gray-50 text-gray-800">
+
+
+<style>[x-cloak]{ display:none !important; }</style>
+
+<header class="fixed top-0 left-0 w-full bg-primary text-white shadow-lg z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        
+        <a href="https://kilitaxi.com" class="flex items-center gap-3">
+      <span class="inline-flex items-center justify-center bg-white/90 rounded-md p-1.5 md:p-2 shadow-sm">
+        <img
+            src="https://kilitaxi.com/images/logo.png"
+            alt="Kili Taxi"
+            class="h-8 w-auto md:h-10"
+            loading="lazy"
+        />
+      </span>
+            <span class="sr-only">Kili Taxi</span>
+        </a>
+
+        
+        <nav class="hidden md:flex items-center space-x-8 font-medium">
+            <a href="https://kilitaxi.com/#home" class="hover:text-orange-200 transition-colors">Home</a>
+            <a href="https://kilitaxi.com/about-us" class="hover:text-orange-200 transition-colors">About Us</a>
+
+            
+            <div x-data="{ open:false }" class="relative">
+                <button type="button"
+                        @click="open = !open"
+                        @keydown.escape.window="open=false"
+                        @click.outside="open=false"
+                        :aria-expanded="open"
+                        aria-haspopup="true"
+                        class="inline-flex items-center gap-1 hover:text-orange-200 transition-colors">
+                    Services
+                    <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 11.92 1.18l-4.2 3.33a.75.75 0 01-.94 0l-4.2-3.33a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div x-cloak x-show="open" x-transition.origin.top.left
+                     class="absolute left-0 mt-2 w-60 bg-white text-gray-800 rounded-xl shadow-lg ring-1 ring-black/5 py-2 z-50">
+                    <a href="https://kilitaxi.com/point-to-point-transfers" class="block px-4 py-2 hover:bg-gray-50">Point to Point Transfers</a>
+                    <a href="https://kilitaxi.com/airport-transfers" class="block px-4 py-2 hover:bg-gray-50">Airport Transfers</a>
+                    <a href="https://kilitaxi.com/day-trips" class="block px-4 py-2 hover:bg-gray-50">Day Trips</a>
+                </div>
+            </div>
+
+            
+            <div x-data="{ open:false }" class="relative">
+                <button type="button"
+                        @click="open = !open"
+                        @keydown.escape.window="open=false"
+                        @click.outside="open=false"
+                        :aria-expanded="open"
+                        aria-haspopup="true"
+                        class="inline-flex items-center gap-1 hover:text-orange-200 transition-colors">
+                    Travel Info
+                    <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 11.92 1.18l-4.2 3.33a.75.75 0 01-.94 0l-4.2-3.33a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div x-cloak x-show="open" x-transition.origin.top.left
+                     class="absolute left-0 mt-2 w-64 bg-white text-gray-800 rounded-xl shadow-lg ring-1 ring-black/5 py-2 z-50">
+                    <a href="https://kilitaxi.com/terms-and-conditions" class="block px-4 py-2 hover:bg-gray-50">Terms &amp; Conditions</a>
+                    <a href="https://kilitaxi.com/privacy-policy" class="block px-4 py-2 hover:bg-gray-50">Privacy Policy</a>
+                    <a href="https://kilitaxi.com/faqs" class="block px-4 py-2 hover:bg-gray-50">FAQs</a>
+                </div>
+            </div>
+
+            <a href="https://kilitaxi.com/#contact" class="hover:text-orange-200 transition-colors">Contact</a>
+        </nav>
+
+        
+        <div class="hidden md:flex items-center">
+            <a href="https://wa.me/255765094676?text=Hi%20Kili%20Taxi%2C%20I%20have%20a%20question." rel="noopener noreferrer" class="flex items-start gap-2 p-2 rounded-xl border border-emerald-100 bg-emerald-50 hover:bg-emerald-100 transition-colors group">
+                        <span class=" w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 group-hover:bg-emerald-200 transition-colors">
+                            <i class="fab fa-whatsapp text-emerald-600 text-lg"></i>
+                        </span>
+                        <div>
+                            <div class="text-xs text-emerald-700 mb-0.5">Chat with us</div>
+                            <div class="font-semibold text-emerald-800 text-sm">+255 765 094 676</div>
+                        </div>
+                    </a>
+          
+                   
+        </div>
+
+        
+        <button x-data @click="$dispatch('toggle-mobile')" class="md:hidden text-white" aria-label="Open Menu" aria-controls="mobile-nav" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </div>
+
+    
+    <div
+        x-data="{ open:false, services:false, info:false }"
+        x-init="$watch('open', v => { $root.querySelector('#mobile-toggle')?.setAttribute('aria-expanded', v) })"
+        @toggle-mobile.window="open = !open"
+        x-cloak
+        x-show="open"
+        x-transition
+        id="mobile-nav"
+        class="md:hidden bg-blue-800 border-t border-blue-700"
+    >
+        <nav class="flex flex-col p-4 space-y-1">
+            <a href="https://kilitaxi.com/#home" class="py-2 px-2 text-white hover:bg-blue-700 rounded">Home</a>
+            <a href="https://kilitaxi.com/about-us" class="py-2 px-2 text-white hover:bg-blue-700 rounded">About Us</a>
+
+            
+            <div class="rounded">
+                <button @click="services = !services"
+                        class="w-full flex items-center justify-between py-2 px-2 text-white hover:bg-blue-700 rounded"
+                        :aria-expanded="services" aria-controls="m-services">
+                    <span>Services</span>
+                    <svg class="w-4 h-4 transform transition" :class="services ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 11.92 1.18l-4.2 3.33a.75.75 0 01-.94 0l-4.2-3.33a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div id="m-services" x-show="services" x-cloak class="ml-3 pl-3 border-l border-blue-700 space-y-1">
+                    <a href="https://kilitaxi.com/point-to-point-transfers" class="block py-2 px-2 text-white/90 hover:bg-blue-700 rounded">Point to Point Transfers</a>
+                    <a href="https://kilitaxi.com/airport-transfers" class="block py-2 px-2 text-white/90 hover:bg-blue-700 rounded">Airport Transfers</a>
+                    <a href="https://kilitaxi.com/day-trips" class="block py-2 px-2 text-white/90 hover:bg-blue-700 rounded">Day Trips</a>
+                </div>
+            </div>
+
+            
+            <div class="rounded">
+                <button @click="info = !info"
+                        class="w-full flex items-center justify-between py-2 px-2 text-white hover:bg-blue-700 rounded"
+                        :aria-expanded="info" aria-controls="m-info">
+                    <span>Travel Info</span>
+                    <svg class="w-4 h-4 transform transition" :class="info ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 11.92 1.18l-4.2 3.33a.75.75 0 01-.94 0l-4.2-3.33a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div id="m-info" x-show="info" x-cloak class="ml-3 pl-3 border-l border-blue-700 space-y-1">
+                    <a href="https://kilitaxi.com/terms-and-conditions" class="block py-2 px-2 text-white/90 hover:bg-blue-700 rounded">Terms &amp; Conditions</a>
+                    <a href="https://kilitaxi.com/privacy-policy" class="block py-2 px-2 text-white/90 hover:bg-blue-700 rounded">Privacy Policy</a>
+                    <a href="https://kilitaxi.com/faqs" class="block py-2 px-2 text-white/90 hover:bg-blue-700 rounded">FAQs</a>
+                </div>
+            </div>
+
+            <a href="https://kilitaxi.com/#contact" class="py-2 px-2 text-white hover:bg-blue-700 rounded">Contact</a>
+
+            <div class="pt-4 border-t border-blue-700 mt-2">
+                <a href="tel:+255765094676" class="flex items-center text-white py-2">
+                    <i class="fas fa-phone-alt mr-2"></i> +255 765 094 676
+                </a>
+                <a href="mailto:info@kilitaxi.com" class="flex items-center text-white py-2">
+                    <i class="fas fa-envelope mr-2"></i> info@kilitaxi.com
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<div class="h-20"></div>
+
+<main>
+    
+<section class="relative">
+    <div class="relative isolate">
+        <div
+            class="h-[320px] md:h-[420px] w-full"
+            style="background-image:
+                linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url('https://kilitaxi.com/images/daytrips/tanzania-wildlife-safari-banner-1536x600.jpg');
+                background-size: cover; background-position: center;">
+        </div>
+
+        <div class="absolute inset-0 flex items-center">
+            <div class="max-w-7xl mx-auto px-6 w-full">
+                <div class="text-white max-w-3xl">
+                    <p class="uppercase tracking-widest text-secondary font-semibold">Excellence &amp; Beyond</p>
+                    <h1 class="text-3xl md:text-5xl font-extrabold mt-2">Our Day Trips</h1>
+                    <p class="mt-4 text-gray-100">
+                        Unforgettable one-day experiences led by local experts—perfect for quick escapes from Moshi &amp; Arusha.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-primary">Why Book With Us?</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- 1. Customizable Experiences -->
+            <div class="bg-primary/5 rounded-xl p-6 text-center card-hover">
+                <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-primary">Customizable Experiences</h3>
+                <p class="text-gray-600 mt-2">We offer tailor-made tours that suit your schedule, preferences, and interests.</p>
+            </div>
+
+            <!-- 2. Local Expertise -->
+            <div class="bg-primary/5 rounded-xl p-6 text-center card-hover">
+                <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-primary">Local Expertise</h3>
+                <p class="text-gray-600 mt-2">Guided by experienced local experts who share culture, history, and hidden gems.</p>
+            </div>
+
+            <!-- 3. Comfort and Safety -->
+            <div class="bg-primary/5 rounded-xl p-6 text-center card-hover">
+                <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-primary">Comfort and Safety</h3>
+                <p class="text-gray-600 mt-2">Vehicles with the right amenities to keep you comfortable throughout the journey.</p>
+            </div>
+
+            <!-- 4. Affordability -->
+            <div class="bg-primary/5 rounded-xl p-6 text-center card-hover">
+                <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-secondary text-white flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-tags"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-primary">Affordability</h3>
+                <p class="text-gray-600 mt-2">Best value trips—whether budget-friendly day tours or luxury safaris.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-10 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+            <p class="text-gray-700 leading-7">
+                At Kili Taxi, we don’t just provide transfers—we offer unforgettable tour experiences across Tanzania.
+                Whether you’re looking to explore the natural wonders, vibrant culture, or iconic wildlife of this
+                beautiful country, our expertly crafted tours provide the perfect blend of adventure, comfort, and convenience.
+            </p>
+            <p class="text-gray-700 leading-7 mt-4">
+                From day trips to immersive multi-day tours, we ensure that every experience is designed to showcase
+                the very best that Tanzania has to offer. Our tours are led by experienced local guides who bring the
+                landscapes and cultures to life, offering insider knowledge and personalized service that you won’t find elsewhere.
+            </p>
+        </div>
+        <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+                src="https://kilitaxi.com/images/daytrips/5-Day-Tanzania-1024x576.jpg"
+                alt="Safari vehicle with guests"
+                class="w-full h-[320px] md:h-[380px] object-cover">
+        </div>
+    </div>
+</section>
+
+<section class="pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/arusha-national-park" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/ARS_94021357-768x515.jpeg" alt="Arusha National Park Day Trip" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/arusha-national-park" class="hover:underline">Arusha National Park Day Trip</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 2 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $360 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/arusha-national-park" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/1" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/chemka-hot-springs" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/day-5-day-4.jpg" alt="Chemka Hot Spring" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/chemka-hot-springs" class="hover:underline">Chemka Hot Spring</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 2 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $50 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/chemka-hot-springs" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/2" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/lake-manyara" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/lake-manyara-national-park1-1-1024x661.webp" alt="L. Manyara National Park Day Trip" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/lake-manyara" class="hover:underline">L. Manyara National Park Day Trip</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 2 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $240 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/lake-manyara" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/8" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/lake-chala" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/chala.jpg" alt="Lake Chala Day Trip" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/lake-chala" class="hover:underline">Lake Chala Day Trip</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 2 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $70 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/lake-chala" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/4" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/maasai" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/maasai-boma-product.jpg" alt="Maasai Village Experience" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/maasai" class="hover:underline">Maasai Village Experience</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 2 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $80 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/maasai" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/7" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/materuni-waterfalls" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/materuni.jpg" alt="Materuni Waterfalls &amp; Coffee Tour" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/materuni-waterfalls" class="hover:underline">Materuni Waterfalls &amp; Coffee Tour</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 2 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $50 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/materuni-waterfalls" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/5" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/mount-kilimanjaro-1-day-hike" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/IMG_6055.jpg" alt="Mount Kilimanjaro 1 Day Hike" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/mount-kilimanjaro-1-day-hike" class="hover:underline">Mount Kilimanjaro 1 Day Hike</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 1 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $200 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/mount-kilimanjaro-1-day-hike" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/3" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/ngorongoro-crater" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/Ngorongoro-crater-rim.jpg" alt="Ngorongoro Crater Day Trip" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/ngorongoro-crater" class="hover:underline">Ngorongoro Crater Day Trip</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 2 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $370 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/ngorongoro-crater" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/9" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+                        
+            <article class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                <a href="/day-trips/tarangire" class="block">
+                    <div class="bg-gray-50 h-56 flex items-center justify-center overflow-hidden">
+                        <img src="/images/daytrips/SNJV2iXASqkIF7j.jpeg" alt="Tarangire National Park Day Trip" class="w-full h-full object-cover">
+                    </div>
+                </a>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        <a href="/day-trips/tarangire" class="hover:underline">Tarangire National Park Day Trip</a>
+                    </h3>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span class="inline-flex items-center gap-2 bg-blue-50 text-primary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-clock"></i> 1 Day
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-user-group"></i> 1 &amp; Above
+                </span>
+                        <span class="inline-flex items-center gap-2 bg-orange-50 text-secondary px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-tag"></i> USD $480 per person
+                </span>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="/day-trips/tarangire" class="btn-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-eye mr-2"></i> View Trip
+                        </a>
+                        <a href="https://kilitaxi.com/day-trips/booking/6" class="bg-primary/10 text-primary px-4 py-2 rounded-lg inline-flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> Book Now
+                        </a>
+                    </div>
+                </div>
+            </article>
+            
+
+        </div>
+    </div>
+</section>
+</main>
+
+
+<footer class="bg-gray-900 text-gray-400">
+    <!-- Top -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- Brand + Blurb + Social -->
+            <div>
+                <a href="https://kilitaxi.com" class="text-2xl font-bold text-white flex items-center">
+                    <span class="bg-secondary p-1 rounded mr-2"><i class="fas fa-taxi"></i></span>
+                    Kili Taxi Services
+                </a>
+                <p class="mt-4">
+                    Kili Taxi Services (KT) is a registered local company based in Moshi, Kilimanjaro, Tanzania—dedicated to safe,
+                    affordable and reliable taxi, transfers and tours services.
+                </p>
+                <div class="flex items-center gap-4 mt-6 text-lg">
+                    <a href="https://web.facebook.com/kilitaxi/" class="hover:text-white" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/kilitaxi/" class="hover:text-white" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g317084-d15594367-Reviews-Kili_Taxi_Services-Moshi_Kilimanjaro_Region.html" class="hover:text-white" aria-label="Tripadvisor">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick link -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">quick link</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://kilitaxi.com/about-us" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="https://kilitaxi.com/contact-us" class="hover:text-white transition">Contact</a></li>
+                    <li><a href="https://kilitaxi.com/airport-transfers" class="hover:text-white transition">Airport Transfers</a></li>
+                    <li><a href="https://kilitaxi.com/point-to-point-transfers" class="hover:text-white transition">Point to Point Transfers</a></li>
+                    <li><a href="https://kilitaxi.com/day-trips" class="hover:text-white transition">Our Tours</a></li>
+                </ul>
+            </div>
+
+            <!-- Help center -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">help center</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://kilitaxi.com/faqs" class="hover:text-white transition">FAQ</a></li>
+                    <li><a href="https://kilitaxi.com/terms-and-conditions" class="hover:text-white transition">term &amp; conditions</a></li>
+                    <li><a href="https://kilitaxi.com/privacy-policy" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li>
+                        <a href="https://api.whatsapp.com/send?phone=255765094676" class="hover:text-white transition flex items-center gap-2">
+                            <i class="fab fa-whatsapp text-green-500"></i> Emergencies
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Map -->
+            <div>
+                <h3 class="text-white text-lg font-semibold mb-4">Our Location</h3>
+                <div class="rounded-xl overflow-hidden ring-1 ring-gray-800/60 shadow">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4724.633090691859!2d37.339079!3d-3.3486944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1839d9b495a5a5ab%3A0xe2e176f3b0365fd5!2sKili%20Taxi%20Services%20-%20Local%20taxi%2C%20Tours%20%26%20transfer%20service%20in%20Tanzania!5e1!3m2!1sen!2stz!4v1756728980494!5m2!1sen!2stz"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="w-full h-56 md:h-64 lg:h-[210px] border-0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-5 text-2xl text-gray-500">
+                <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                <i class="fas fa-money-bill-wave" aria-hidden="true"></i>
+            </div>
+            <p class="text-center md:text-right">
+                &copy; 2018 - 2026 Kili Taxi Services. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+<a href="https://api.whatsapp.com/send?phone=255765094676" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-green-600 hover:scale-110 transition-all z-[9999]" aria-label="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>

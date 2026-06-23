@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-olive-50: #f5f7f5;
+  --color-olive-100: #e6ebe6;
+  --color-olive-200: #ced7c9;
+  --color-olive-300: #aebda6;
+  --color-olive-400: #8c9f80;
+  --color-olive-500: #6f8364;
+  --color-olive-600: #55664d;
+  --color-olive-700: #44513f;
+  --color-olive-800: #374233;
+  --color-olive-900: #2e372b;
+
+  --color-savannah-500: #d69f4c;
+  --color-savannah-600: #bd8438;
+
+  --font-serif: "Lora", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: "Lora", serif;
+  color: #2e372b;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
