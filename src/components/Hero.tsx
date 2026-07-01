@@ -52,7 +52,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="text-sm text-savannah-400 font-sans font-medium max-w-xl mx-auto mb-10"
         >
-          Your adventure funds education for children with disabilities in Tanzania.
+          Expert guides. Unforgettable wildlife. Authentic Tanzania.
         </motion.p>
 
         <motion.div

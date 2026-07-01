@@ -21,7 +21,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="font-serif text-olive-300 text-sm leading-relaxed mb-6">
-              Authentic excellence in Tanzania. Professional Mount Kilimanjaro climbs, wildlife safaris, and local Moshi experiences. Your adventure funds education for children with disabilities.
+              Authentic excellence in Tanzania. Professional Mount Kilimanjaro climbs, wildlife safaris, and local Moshi experiences.
             </p>
             <div className="space-y-3 font-sans text-sm">
               <div className="flex items-start gap-3">
