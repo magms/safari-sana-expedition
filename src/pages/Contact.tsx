@@ -67,8 +67,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-sans font-bold text-olive-900 text-lg">Email Us</h4>
-                  <a href="mailto:info@safarisanaexpeditions.com" className="font-serif text-olive-600 mt-1 hover:text-savannah-600 transition-colors block">
-                    info@safarisanaexpeditions.com
+                  <a href="mailto:karibu@safarisana.com" className="font-serif text-olive-600 mt-1 hover:text-savannah-600 transition-colors block">
+                    karibu@safarisana.com
                   </a>
                 </div>
               </div>

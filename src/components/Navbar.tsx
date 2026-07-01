@@ -48,8 +48,8 @@ export default function Navbar() {
               </svg>
               WhatsApp
             </a>
-            <a href="mailto:info@safarisanaexpeditions.com" className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <Mail className="w-3 h-3 text-savannah-500" /> info@safarisanaexpeditions.com
+            <a href="mailto:karibu@safarisana.com" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Mail className="w-3 h-3 text-savannah-500" /> karibu@safarisana.com
             </a>
           </div>
         </div>
@@ -143,7 +143,7 @@ export default function Navbar() {
           </div>
           <div className="text-xs text-olive-500 text-center pb-2">
             <p>+255 763 768 472</p>
-            <p>info@safarisanaexpeditions.com</p>
+            <p>karibu@safarisana.com</p>
           </div>
         </div>
       )}
