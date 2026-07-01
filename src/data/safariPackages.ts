@@ -132,7 +132,7 @@ export const safariPackages = [
     parks: ["Tarangire", "Lake Manyara", "Ngorongoro", "Serengeti"],
     availability: "Year-round",
     departure: "Arusha",
-    imgUrl: "/images/serengeti-safari.jpg",
+    imgUrl: "/images/DSCF5262.jpg",
     maxGroup: 7,
     desc: "An extended safari covering all of Tanzania's most spectacular national parks with ample time for wildlife viewing, cultural encounters, and relaxation.",
     highlights: [

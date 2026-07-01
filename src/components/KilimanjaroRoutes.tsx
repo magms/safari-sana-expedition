@@ -29,7 +29,7 @@ export default function KilimanjaroRoutes() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {kiliPackages.map((route, idx) => (
+          {kiliPackages.slice(0, 6).map((route, idx) => (
             <Link to={`/package/${route.id}`} key={route.id}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
