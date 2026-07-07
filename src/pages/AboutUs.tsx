@@ -24,8 +24,8 @@ export default function AboutUs() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            src="https://images.unsplash.com/photo-1547471080-7fc2caa6f17f?q=80&w=2940&auto=format&fit=crop"
-            alt="Our Team"
+            src="/images/kili.png"
+            alt="Mount Kilimanjaro"
             className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
           />
           <motion.div

@@ -68,7 +68,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Safari Sana Expeditions"
-              className={`transition-all duration-300 ${isScrolled ? 'h-12 brightness-100' : 'h-14 brightness-0 invert'}`}
+              className={`transition-all duration-300 ${isScrolled ? 'h-16 brightness-100' : 'h-20 brightness-0 invert'}`}
             />
           </Link>
 
